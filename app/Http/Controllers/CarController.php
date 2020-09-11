@@ -84,9 +84,11 @@ class CarController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Car $car)
     {
-        //
+      $tags = Tag::all();
+      $users = User::all();
+      return view('cars.edit', compact('car', 'tags', 'users'));
     }
 
     /**
@@ -96,9 +98,12 @@ class CarController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Car $car)
     {
-        //
+      $data = $request->all();
+      $car->update($data);
+
+      return view('cars.show', compact('car'));
     }
 
     /**
