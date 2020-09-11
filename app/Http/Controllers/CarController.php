@@ -112,9 +112,10 @@ class CarController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Car $car)
     {
-        //
+      $car->delete();
+      return view('cars.index');
     }
 
     public function validationData() {

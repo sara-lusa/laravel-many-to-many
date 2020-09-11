@@ -10,6 +10,11 @@
     <br>
     <a href="{{route('cars.edit', $car)}}">Edit car</a>
     <br>
+    <form action="{{route('cars.destroy', $car)}}" method="post">
+      @csrf
+      @method('DELETE')
+      <input type="submit" name="" value="Delete">
+    </form>
     <br>
   </div>
 @endforeach
